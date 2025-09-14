@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Webcam from "react-webcam";
 import Link from "next/link";
-import { useContext } from 'react';
+import { useContext } from "react";
 import { WebCamContext } from "../../layout";
 
 const Interview = ({ params }) => {
@@ -18,13 +18,13 @@ const Interview = ({ params }) => {
     console.log(params.interviewId);
     GetInterviewDetails();
   }, []);
-  
+
   const GetInterviewDetails = async () => {
     const result = await db
       .select()
       .from(MockInterview)
       .where(eq(MockInterview.mockId, params.interviewId));
-      
+
     setInterviewData(result[0]);
   };
   return (
